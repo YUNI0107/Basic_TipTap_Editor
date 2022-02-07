@@ -1,12 +1,14 @@
-import Tiptap from "./Tiptap.jsx";
-import './App.css';
+import Tiptap from './Tiptap.jsx'
+import MyTiptap from './MyTiptap'
+import './App.css'
 
 const App = () => {
   return (
     <div className="App">
       <Tiptap />
+      <MyTiptap />
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
