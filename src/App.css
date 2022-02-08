@@ -15,6 +15,7 @@
 .ProseMirror h5,
 .ProseMirror h6 {
   line-height: 1.1;
+  font-weight: normal;
 }
 
 .ProseMirror code {
@@ -52,3 +53,5 @@
   border-top: 2px solid rgba(13, 13, 13, 0.1);
   margin: 2rem 0;
 }
+
+

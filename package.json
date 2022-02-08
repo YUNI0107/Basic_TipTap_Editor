@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "@tiptap/extension-link": "^2.0.0-beta.36",
     "@tiptap/extension-text-align": "^2.0.0-beta.29",
     "@tiptap/react": "^2.0.0-beta.70",
     "@tiptap/starter-kit": "^2.0.0-beta.117",
@@ -16,7 +17,7 @@
     "web-vitals": "^2.1.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "kill -9 $(lsof -ti:3000,3001) && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
