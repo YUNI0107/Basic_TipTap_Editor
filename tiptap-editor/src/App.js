@@ -1,7 +1,7 @@
 import './App.css'
 
 function App() {
-  return <></>
+  return <>Test commit</>
 }
 
 export default App
