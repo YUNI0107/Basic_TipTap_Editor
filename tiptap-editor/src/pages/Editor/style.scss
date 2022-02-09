@@ -1,0 +1,7 @@
+.ProseMirror {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  min-height: inherit;
+  @apply px-5 py-2 bg-white ring-main-orange-300 ring-4 outline-none drop-shadow-md;
+}
