@@ -5,7 +5,7 @@ import Editor from './pages/Editor/Editor'
 
 function App() {
   return (
-    <div className="bg-main-gray-100 min-h-screen min-w-screen flex justify-center items-center">
+    <div className="bg-main-gray-100 w-[1240px] min-h-screen min-w-screen flex justify-center items-center p-10">
       <Editor />
     </div>
   )
