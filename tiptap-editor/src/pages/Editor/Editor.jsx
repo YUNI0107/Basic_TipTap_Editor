@@ -4,8 +4,8 @@ import StarterKit from '@tiptap/starter-kit'
 import './style.scss'
 
 // components
-import TopMenu from '../../components/layout/TopMenu/TopMenu'
-import BottomMenu from '../../components/layout/BottomMenu/BottomMenu'
+import TopMenu from '@/components/layout/TopMenu/TopMenu'
+import BottomMenu from '@/components/layout/BottomMenu/BottomMenu'
 
 function Editor() {
   const editor = useEditor({
