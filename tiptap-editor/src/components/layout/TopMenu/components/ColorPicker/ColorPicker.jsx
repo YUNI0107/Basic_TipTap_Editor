@@ -1,4 +1,4 @@
-import ColorPickerList from '../../../constant/menuList'
+import ColorPickerList from '../../../../../constant/menuList'
 
 function ColorPicker() {
   return (

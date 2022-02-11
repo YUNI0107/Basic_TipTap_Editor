@@ -3,16 +3,12 @@ import classNames from 'classnames'
 // components
 import HeadingSelect from './components/HeadingSelect/HeadingSelect'
 import CommandButton from '../../common/CommandButton'
-import ColorPicker from '../ColorPicker'
+import ColorPicker from './components/ColorPicker'
 
-function TopMenu({ setHeadingValue, defaultHeadValue, headingValue }) {
+function TopMenu({ setHeadingValue, headingValue }) {
   return (
     <div className="px-6 py-5 w-full h-20 bg-white text-main-gray-200 flex justify-between border-b-[5px] border-main-orange-300">
-      <HeadingSelect
-        setHeadingValue={setHeadingValue}
-        defaultValue={defaultHeadValue}
-        currentValue={headingValue}
-      />
+      <HeadingSelect setHeadingValue={setHeadingValue} currentValue={headingValue} />
 
       <div className="flex">
         <CommandButton status={'basic'}>

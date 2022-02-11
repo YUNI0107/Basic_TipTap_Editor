@@ -14,6 +14,8 @@ function Editor() {
 
   const [headingValue, setHeadingValue] = useState('h1')
 
+  console.log('top', headingValue)
+
   return (
     <>
       <div className="relative max-w-[800px] w-full drop-shadow-md ring-main-orange-300 ring-5 rounded-[10px] overflow-hidden">
