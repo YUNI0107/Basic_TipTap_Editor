@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 // components
 import SelectComponent from '../../../../common/SelectComponent'
@@ -25,10 +25,12 @@ const blockStyle = {
   'option-avoid-last': OptionAvoidLastStyle,
 }
 
-function HeadingSelect({ setHeadingValue, currentValue, editor }) {
+function HeadingSelect({ editor }) {
+  const [value, setValue] = useState('h1')
+
   // effects
   useEffect(() => {
-    switch (currentValue) {
+    switch (value) {
       case 'h1':
         editor.chain().focus().unsetFontSize().setHeading({ level: 1 }).run()
         break
@@ -39,38 +41,38 @@ function HeadingSelect({ setHeadingValue, currentValue, editor }) {
         editor.chain().focus().unsetFontSize().setHeading({ level: 3 }).run()
         break
       case 'p':
-        editor.chain().focus().setParagraph().setFontSize(16).run()
+        editor.chain().focus().unsetFontSize().setParagraph().run()
         break
       case 'annotation':
         editor.chain().focus().setParagraph().setFontSize(12).run()
         break
     }
-  }, [currentValue])
+  }, [value])
 
   // use isActive detect weather the cursor is on the certain section ( update everyTime )
   useEffect(() => {
     if (editor.isActive('heading', { level: 1 })) {
-      setHeadingValue('h1')
+      setValue('h1')
     } else if (editor.isActive('heading', { level: 2 })) {
-      setHeadingValue('h2')
+      setValue('h2')
     } else if (editor.isActive('heading', { level: 3 })) {
-      setHeadingValue('h3')
+      setValue('h3')
     }
     // set annotation container to paragraph, so need to be careful that the editor will detect editor.isActive('paragraph') true
-    else if (editor.isActive('paragraph') && editor.isActive({ fontSize: '16px' })) {
-      setHeadingValue('p')
-    } else if (editor.isActive('paragraph') && editor.isActive({ fontSize: '12px' })) {
-      setHeadingValue('annotation')
+    else if (editor.isActive('paragraph') && editor.isActive('textStyle', { fontSize: 12 })) {
+      setValue('annotation')
+    } else if (editor.isActive('paragraph')) {
+      setValue('p')
     }
   })
 
   return (
-    <SelectComponent setValue={setHeadingValue} currentValue={currentValue} list={sizeList}>
+    <SelectComponent setValue={setValue} currentValue={value} list={sizeList}>
       {/*  show custom select layout */}
       <SelectCustomSection
         list={sizeList}
-        currentValue={currentValue}
-        setValue={setHeadingValue}
+        currentValue={value}
+        setValue={setValue}
         blockStyle={blockStyle}
       />
     </SelectComponent>

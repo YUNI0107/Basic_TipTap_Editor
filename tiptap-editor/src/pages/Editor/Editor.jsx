@@ -1,9 +1,11 @@
-import { useState } from 'react'
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import TextAlign from '@tiptap/extension-text-align'
 import Heading from '@tiptap/extension-heading'
 import TextStyle from '@tiptap/extension-text-style'
+import Underline from '@tiptap/extension-underline'
+import ListItem from '@tiptap/extension-list-item'
+import OrderedList from '@tiptap/extension-ordered-list'
 import './style.scss'
 
 // customExtension
@@ -25,21 +27,16 @@ function Editor() {
       }),
       TextStyle,
       FontSize,
+      Underline,
+      ListItem,
+      OrderedList,
     ],
   })
-
-  // state
-  const [headingValue, setHeadingValue] = useState('h1')
 
   return (
     <>
       <div className="relative max-w-[800px] w-full drop-shadow-md ring-main-orange-300 ring-5 rounded-[10px] overflow-hidden">
-        <TopMenu
-          editor={editor}
-          setHeadingValue={setHeadingValue}
-          defaultHeadValue={headingValue}
-          headingValue={headingValue}
-        />
+        <TopMenu editor={editor} />
         <EditorContent editor={editor} className="min-h-[380px] px-5 py-2 bg-white" />
         <BottomMenu />
       </div>

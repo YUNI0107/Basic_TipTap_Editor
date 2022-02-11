@@ -1,7 +1,8 @@
-import { useEditor, EditorContent, Extension } from '@tiptap/react'
+import { Extension } from '@tiptap/core'
+import '@tiptap/extension-text-style'
 
 const FontSize = Extension.create({
-  name: 'FontSize',
+  name: 'fontSize',
   addOptions() {
     return {
       types: ['textStyle'],

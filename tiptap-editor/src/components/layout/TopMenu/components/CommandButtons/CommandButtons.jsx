@@ -32,15 +32,21 @@ function CommandButtons({ editor }) {
         <i className="ri-bold"></i>
       </CommandButton>
 
-      <CommandButton isActive={false}>
+      <CommandButton
+        isActive={false}
+        handleClick={() => editor.chain().focus().setUnderline().run()}
+      >
         <i className="ri-italic"></i>
       </CommandButton>
 
-      <CommandButton isActive={false}>
+      <CommandButton isActive={false} handleClick={() => editor.chain().focus().setItalic().run()}>
         <i className="ri-underline"></i>
       </CommandButton>
 
-      <CommandButton isActive={false}>
+      <CommandButton
+        isActive={false}
+        handleClick={() => editor.chain().focus().toggleOrderedList().run()}
+      >
         <i className="ri-list-unordered"></i>
       </CommandButton>
 
