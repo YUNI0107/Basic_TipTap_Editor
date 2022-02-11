@@ -26,4 +26,10 @@ export const sizeList = [
   },
 ]
 
-export const ColorPickerList = ['main-orange-300', 'main-blue-300']
+export const ColorPickerList = [
+  'main-orange-300',
+  'main-orange-200',
+  'main-blue-300',
+  'main-blue-100',
+  'little-blue',
+]

@@ -26,7 +26,7 @@ const blockStyle = {
 }
 
 function HeadingSelect({ editor }) {
-  const [value, setValue] = useState('h1')
+  const [value, setValue] = useState('p')
 
   // effects
   useEffect(() => {
