@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["remixicon", "tailwindcss", "Tiptap", "webfonts"]
+  "cSpell.words": ["remixicon", "tailwindcss", "Tiptap"],
+  "git.ignoreLimitWarning": true
 }

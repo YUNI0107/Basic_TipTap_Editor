@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import classNames from 'classnames'
 
-function SelectComponent({ setValue, defaultValue, list, currentValue }) {
+function SelectComponent({ setValue, defaultValue, list, currentValue, blockStyle }) {
   const [optionShow, setOptionShow] = useState(false)
   const select = useRef()
 
@@ -37,10 +37,7 @@ function SelectComponent({ setValue, defaultValue, list, currentValue }) {
         onBlur={() => setOptionShow(false)}
       >
         <div
-          className={classNames(
-            'w-full border-2 border-main-blue-100 px-2 py-[2px] bg-white rounded-[10px] flex justify-between cursor-pointer',
-            { 'rounded-b-[0px]': optionShow }
-          )}
+          className={classNames(blockStyle['top'], { [blockStyle['top-active']]: optionShow })}
           onClick={() => setOptionShow(!optionShow)}
         >
           <p className="text-lg">{list.find(({ value }) => currentValue === value).text}</p>
@@ -53,26 +50,19 @@ function SelectComponent({ setValue, defaultValue, list, currentValue }) {
 
         {/* div options: hidden on mobile */}
         <div
-          className={classNames(
-            'absolute hidden z-10 left-0 w-full bg-white border-2 border-main-blue-100 rounded-b-[10px] -mt-1',
-            {
-              'sm:block': optionShow,
-            }
-          )}
+          className={classNames('overflow-hidden', blockStyle['option-container'], {
+            [blockStyle['option-container-active']]: optionShow,
+          })}
         >
-          {list.map(({ value, text, className }, index) => {
+          {list.map(({ value, text, className: eachClassName }, index) => {
             const lastItem = index === list.length - 1
 
             return (
               <div
                 key={value}
-                className={classNames(
-                  'block w-full p-2 cursor-pointer hover:bg-little-blue',
-                  className,
-                  {
-                    'border-b-[1px] border-main-gray-100': !lastItem,
-                  }
-                )}
+                className={classNames(blockStyle['option'], eachClassName, {
+                  [blockStyle['option-avoid-last']]: !lastItem,
+                })}
                 onClick={() => clickDivOption(value)}
               >
                 <p>{text}</p>
