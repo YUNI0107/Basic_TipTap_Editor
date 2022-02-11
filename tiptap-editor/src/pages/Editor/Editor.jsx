@@ -4,8 +4,8 @@ import StarterKit from '@tiptap/starter-kit'
 import './style.scss'
 
 // components
-import TopMenu from '@/components/layout/TopMenu/TopMenu'
-import BottomMenu from '@/components/layout/BottomMenu/BottomMenu'
+import TopMenu from '../../components/layout/TopMenu/TopMenu'
+import BottomMenu from '../../components/layout/BottomMenu'
 
 function Editor() {
   const editor = useEditor({
@@ -22,11 +22,7 @@ function Editor() {
           defaultHeadValue={headingValue}
           headingValue={headingValue}
         />
-        <EditorContent
-          editor={editor}
-          className="min-h-[380px] px-5 py-2 bg-white
-"
-        />
+        <EditorContent editor={editor} className="min-h-[380px] px-5 py-2 bg-white" />
         <BottomMenu />
       </div>
     </>
