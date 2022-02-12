@@ -14,7 +14,7 @@ function TopMenu({ editor }) {
 
       <div className="flex">
         <CommandButtons editor={editor} />
-        <ColorPicker />
+        <ColorPicker editor={editor} />
       </div>
     </div>
   )

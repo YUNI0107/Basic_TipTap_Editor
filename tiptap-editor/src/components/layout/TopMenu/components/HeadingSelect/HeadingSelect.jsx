@@ -9,7 +9,7 @@ import { sizeList } from '../../../../../constant/menuList'
 
 const TopBlockStyle =
   'w-full border-2 border-main-blue-100 px-2 py-[2px] bg-white rounded-[10px] flex justify-between cursor-pointer'
-const TopBlockActiveStyle = 'rounded-b-[0px]'
+const TopBlockActiveStyle = 'sm:rounded-b-[0px]'
 const OptionContainerStyle =
   'absolute hidden z-10 left-0 w-full bg-white border-2 border-main-blue-100 rounded-b-[10px] -mt-1 overflow-hidden'
 const OptionContainerActiveStyle = 'sm:block'
@@ -26,7 +26,7 @@ const blockStyle = {
 }
 
 function HeadingSelect({ editor }) {
-  const [value, setValue] = useState('p')
+  const [value, setValue] = useState('h1')
 
   // effects
   useEffect(() => {

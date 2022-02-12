@@ -47,22 +47,21 @@ function CommandButtons({ editor }) {
       </CommandButton>
 
       <CommandButton
-        isActive={false}
-        handleClick={() => editor.chain().focus().toggleOrderedList().run()}
+        isActive={editor.isActive('bulletList')}
+        handleClick={() => editor.chain().focus().toggleBulletList().run()}
       >
         <i className="ri-list-unordered"></i>
       </CommandButton>
 
-      <CommandButton isActive={false}>
+      <CommandButton
+        isActive={editor.isActive('orderedList')}
+        handleClick={() => editor.chain().focus().toggleOrderedList().run()}
+      >
         <i className="ri-list-ordered"></i>
       </CommandButton>
 
       <CommandButton isActive={false}>
-        <i className="ri-indent-increase"></i>
-      </CommandButton>
-
-      <CommandButton isActive={false}>
-        <i className="ri-indent-decrease"></i>
+        <i className="ri-link-m"></i>
       </CommandButton>
     </>
   )
