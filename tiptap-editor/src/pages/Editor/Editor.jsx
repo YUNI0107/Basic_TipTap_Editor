@@ -6,6 +6,8 @@ import TextStyle from '@tiptap/extension-text-style'
 import Underline from '@tiptap/extension-underline'
 import ListItem from '@tiptap/extension-list-item'
 import OrderedList from '@tiptap/extension-ordered-list'
+import BulletList from '@tiptap/extension-bullet-list'
+import Color from '@tiptap/extension-color'
 import './style.scss'
 
 // customExtension
@@ -30,6 +32,8 @@ function Editor() {
       Underline,
       ListItem,
       OrderedList,
+      BulletList,
+      Color,
     ],
   })
 
