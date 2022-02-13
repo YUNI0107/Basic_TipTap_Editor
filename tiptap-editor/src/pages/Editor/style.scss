@@ -27,4 +27,13 @@
   ol {
     @apply list-decimal px-4;
   }
+
+  a {
+    text-decoration-color: inherit;
+    @apply underline text-main-blue-100;
+  }
+
+  a span {
+    @apply underline;
+  }
 }

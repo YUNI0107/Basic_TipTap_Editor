@@ -1,9 +1,58 @@
+import { useCallback, useState, useEffect } from 'react'
+
 // components
 import CommandButton from '../CommandButton/CommandButton'
+import BubbleCustomMenu from '../../../BubbleCustomMenu'
+
+// utils
+import convertColorToCode from '../../../../../utils/convertColorToCode'
 
 function CommandButtons({ editor }) {
+  // // operation
+  // const toggleLink = useCallback(() => {
+  //   const previousUrl = editor.getAttributes('link').href
+  //   const url = window.prompt('URL', previousUrl)
+
+  //   // cancelled
+  //   if (url === null) {
+  //     return
+  //   }
+
+  //   // empty
+  //   if (url === '') {
+  //     editor.chain().focus().extendMarkRange('link').unsetLink().run()
+
+  //     return
+  //   }
+
+  //   // update link
+  //   editor
+  //     .chain()
+  //     .focus()
+  //     .extendMarkRange('link')
+  //     .setLink({ href: url })
+  //     .setColor(convertColorToCode('main-blue-100'))
+  //     .run()
+  // }, [editor])
+
+  const toggleBubbleShow = isLink => {
+    if (isLink) {
+      console.log('unset')
+    } else {
+      editor
+        .chain()
+        .focus()
+        .extendMarkRange('link')
+        .setLink({ href: '' })
+        .setColor(convertColorToCode('main-blue-100'))
+        .run()
+    }
+  }
+
   return (
     <>
+      <BubbleCustomMenu editor={editor} />
+
       <CommandButton
         isActive={editor.isActive({ textAlign: 'left' })}
         handleClick={() => editor.chain().focus().setTextAlign('left').run()}
@@ -60,7 +109,10 @@ function CommandButtons({ editor }) {
         <i className="ri-list-ordered"></i>
       </CommandButton>
 
-      <CommandButton isActive={false}>
+      <CommandButton
+        isActive={editor.isActive('link')}
+        handleClick={() => toggleBubbleShow(editor.isActive('link'))}
+      >
         <i className="ri-link-m"></i>
       </CommandButton>
     </>

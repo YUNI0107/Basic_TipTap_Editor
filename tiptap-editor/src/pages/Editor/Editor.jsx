@@ -8,6 +8,7 @@ import ListItem from '@tiptap/extension-list-item'
 import OrderedList from '@tiptap/extension-ordered-list'
 import BulletList from '@tiptap/extension-bullet-list'
 import Color from '@tiptap/extension-color'
+import Link from '@tiptap/extension-link'
 import './style.scss'
 
 // customExtension
@@ -18,6 +19,9 @@ import TopMenu from '../../components/layout/TopMenu/TopMenu'
 import BottomMenu from '../../components/layout/BottomMenu'
 
 function Editor() {
+  // states
+
+  // editor
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -34,6 +38,10 @@ function Editor() {
       OrderedList,
       BulletList,
       Color,
+      Link.configure({
+        autolink: false,
+        openOnClick: false,
+      }),
     ],
   })
 
