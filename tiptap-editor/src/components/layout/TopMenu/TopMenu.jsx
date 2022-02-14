@@ -1,11 +1,9 @@
-import classNames from 'classnames'
-
 // components
 import HeadingSelect from './components/HeadingSelect/HeadingSelect'
 import CommandButtons from './components/CommandButtons/CommandButtons'
 import ColorPicker from './components/ColorPicker'
 
-function TopMenu({ editor }) {
+function TopMenu({ editor, toggleBubbleShow }) {
   if (!editor) return <></>
 
   return (
@@ -13,7 +11,7 @@ function TopMenu({ editor }) {
       <HeadingSelect editor={editor} />
 
       <div className="flex">
-        <CommandButtons editor={editor} />
+        <CommandButtons editor={editor} toggleBubbleShow={toggleBubbleShow} />
         <ColorPicker editor={editor} />
       </div>
     </div>

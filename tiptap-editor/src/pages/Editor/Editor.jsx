@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import TextAlign from '@tiptap/extension-text-align'
@@ -17,9 +18,11 @@ import FontSize from '../../extension/FontSize'
 // components
 import TopMenu from '../../components/layout/TopMenu/TopMenu'
 import BottomMenu from '../../components/layout/BottomMenu'
+import BubbleCustomMenu from '../../components/layout/BubbleCustomMenu'
 
 function Editor() {
   // states
+  const [isFirstLinking, setIsFirstLinking] = useState(false)
 
   // editor
   const editor = useEditor({
@@ -45,11 +48,26 @@ function Editor() {
     ],
   })
 
+  const toggleBubbleShow = isLinkActive => {
+    if (!isLinkActive) {
+      setIsFirstLinking(true)
+    } else {
+      editor.chain().focus().extendMarkRange('link').unsetLink().run()
+    }
+  }
+
   return (
     <>
       <div className="relative max-w-[800px] w-full drop-shadow-md ring-main-orange-300 ring-5 rounded-[10px] overflow-hidden">
-        <TopMenu editor={editor} />
-        <EditorContent editor={editor} className="min-h-[380px] px-5 py-2 bg-white" />
+        <TopMenu editor={editor} toggleBubbleShow={toggleBubbleShow} />
+        <div className="relative">
+          <BubbleCustomMenu
+            editor={editor}
+            isFirstLinking={isFirstLinking}
+            setIsFirstLinking={setIsFirstLinking}
+          />
+          <EditorContent editor={editor} className="min-h-[380px] px-5 py-2 bg-white" />
+        </div>
         <BottomMenu />
       </div>
     </>
