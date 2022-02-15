@@ -14,6 +14,9 @@ const FileBlockExtension = Node.create({
       fileName: {
         default: '',
       },
+      blob: {
+        default: {},
+      },
     }
   },
 
@@ -36,12 +39,13 @@ const FileBlockExtension = Node.create({
   addCommands() {
     return {
       fileBlock:
-        fileName =>
+        file =>
         ({ commands }) => {
           return commands.insertContent({
             type: this.name,
             attrs: {
-              fileName,
+              fileName: file.name,
+              blob: file,
             },
           })
         },

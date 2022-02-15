@@ -1,15 +1,18 @@
+import { useMemo } from 'react'
 import { NodeViewWrapper } from '@tiptap/react'
 
-function FileBlock({ node, editor }) {
+function FileBlock({ node, deleteNode }) {
+  // operation
   const deleteBlock = () => {
-    // TODO: 刪除檔案
-    editor.commands.insertContent('')
+    deleteNode()
   }
+
+  const url = useMemo(() => window.URL.createObjectURL(node.attrs.blob), [node.attrs.blob])
 
   return (
     <NodeViewWrapper className="file-block">
       <div className="w-full bg-little-blue px-2 py-3 rounded-[10px] my-3 flex justify-between items-center">
-        <a href="#">
+        <a href={url} download>
           <p>{node.attrs.fileName}</p>
         </a>
 

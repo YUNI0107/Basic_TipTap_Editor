@@ -10,7 +10,8 @@ function BottomMenu({ editor }) {
         '%cCall Api Upload',
         'background: #ff5722; color: #fff; border-radius: 5px; padding: 5px;'
       )
-      editor.chain().focus().fileBlock(e.target.files[0].name).run()
+
+      editor.chain().focus().fileBlock(e.target.files[0]).run()
 
       fileInput.current.value = ''
     }
