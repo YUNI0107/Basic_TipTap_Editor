@@ -10,6 +10,7 @@ import OrderedList from '@tiptap/extension-ordered-list'
 import BulletList from '@tiptap/extension-bullet-list'
 import Color from '@tiptap/extension-color'
 import Link from '@tiptap/extension-link'
+import Image from '@tiptap/extension-image'
 import './style.scss'
 
 // customExtension
@@ -47,6 +48,7 @@ function Editor() {
         openOnClick: false,
       }),
       FileBlockExtension,
+      Image,
     ],
   })
 
