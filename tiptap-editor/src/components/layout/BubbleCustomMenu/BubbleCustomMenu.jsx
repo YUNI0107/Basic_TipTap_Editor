@@ -41,7 +41,6 @@ function BubbleCustomMenu({ editor, isFirstLinking, setIsFirstLinking }) {
   const checkInputSet = () => {
     setNewLink()
     setIsFirstLinking(false)
-    setInputValue('')
     setIsTyping(false)
   }
 
@@ -68,6 +67,10 @@ function BubbleCustomMenu({ editor, isFirstLinking, setIsFirstLinking }) {
     if (isFirstLinking) setIsFirstLinking(false)
   }, [editor.state.selection])
 
+  useEffect(() => {
+    if (input.current) input.current.focus()
+  }, [isTyping])
+
   return (
     <div
       className={classNames(
@@ -76,7 +79,6 @@ function BubbleCustomMenu({ editor, isFirstLinking, setIsFirstLinking }) {
       )}
       ref={linkToolBar}
       style={{ top: `${position ? position.y : 0}px`, left: `${position ? position.x : 0}px` }}
-      onBlur={checkInputSet}
     >
       <div className="text-white text-2xl cursor-pointer" onClick={checkInputSet}>
         {isTyping ? <i className="ri-link-unlink"></i> : <i className="ri-link"></i>}
@@ -91,7 +93,7 @@ function BubbleCustomMenu({ editor, isFirstLinking, setIsFirstLinking }) {
           ref={input}
           value={inputValue}
           onChange={e => setInputValue(e.target.value)}
-          onKeyDown={e => e.key === 'Enter' && setIsTyping(false)}
+          onKeyDown={e => e.key === 'Enter' && checkInputSet()}
         />
       ) : (
         <p className="text-white py-1 px-2" onClick={() => setIsTyping(true)}>

@@ -1,16 +1,39 @@
-function BottomMenu() {
+import { useRef } from 'react'
+
+function BottomMenu({ editor }) {
+  const fileInput = useRef(null)
+
+  // operation
+  const uploadFile = e => {
+    if (e.target.files.length !== 0 && fileInput.current) {
+      console.log(
+        '%cCall Api Upload',
+        'background: #ff5722; color: #fff; border-radius: 5px; padding: 5px;'
+      )
+      editor.chain().focus().fileBlock(e.target.files[0].name).run()
+
+      fileInput.current.value = ''
+    }
+  }
+
   return (
     <div
       className="px-6 py-5 w-full h-20 bg-main-orange-300 text-white
           flex justify-between items-center"
     >
       {/* left */}
-      <div className="text-[40px]">
-        <button className="w-[40px] h-[40px] mr-3">
+      <div className="flex text-[40px]">
+        <button className="w-[40px] h-[40px] mr-3 flex items-center">
           <i className="ri-image-fill"></i>
         </button>
-        <button className="w-[40px] h-[40px]">
+        <button className="w-[40px] h-[40px] relative flex items-center">
           <i className="ri-chat-upload-fill"></i>
+          <input
+            type="file"
+            className="absolute w-full h-full top-0 left-0 opacity-0 cursor-pointer text-[0px]"
+            onChange={uploadFile}
+            ref={fileInput}
+          />
         </button>
       </div>
 

@@ -14,6 +14,7 @@ import './style.scss'
 
 // customExtension
 import FontSize from '../../extension/FontSize'
+import FileBlockExtension from '../../components/layout/FileBlock/FileBlockExtension'
 
 // components
 import TopMenu from '../../components/layout/TopMenu/TopMenu'
@@ -45,6 +46,7 @@ function Editor() {
         autolink: false,
         openOnClick: false,
       }),
+      FileBlockExtension,
     ],
   })
 
@@ -68,7 +70,7 @@ function Editor() {
           />
           <EditorContent editor={editor} className="min-h-[380px] px-5 py-2 bg-white" />
         </div>
-        <BottomMenu />
+        <BottomMenu editor={editor} />
       </div>
     </>
   )
