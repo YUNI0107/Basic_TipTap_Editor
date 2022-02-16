@@ -25,6 +25,33 @@ function BottomMenu({ editor }) {
     }
   }
 
+  const downloadPdf = () => {
+    const newWindow = window.open()
+    const html = document.createElement('html')
+    const head = document.head.cloneNode(true)
+    const body = document.createElement('body')
+
+    const section = document.querySelector('.ProseMirror').cloneNode(true)
+
+    body.appendChild(section)
+
+    html.appendChild(head)
+    html.appendChild(body)
+
+    // write content to the new window's document.
+    newWindow.document.write(html.innerHTML)
+
+    // close document to stop writing
+    // otherwise new window may hang
+    newWindow.document.close()
+
+    // print content in new window as PDF
+    newWindow.print()
+
+    // // close the new window after printing
+    // newWindow.close()
+  }
+
   return (
     <div
       className="px-6 py-5 w-full h-20 bg-main-orange-300 text-white
@@ -56,7 +83,9 @@ function BottomMenu({ editor }) {
       {/* right */}
       <div className="flex items-baseline">
         <p className="mr-3">Download the PDF </p>
-        <h2 className="text-2xl font-semibold underline cursor-pointer">DONE</h2>
+        <h2 className="text-2xl font-semibold underline cursor-pointer" onClick={downloadPdf}>
+          DONE
+        </h2>
       </div>
     </div>
   )
