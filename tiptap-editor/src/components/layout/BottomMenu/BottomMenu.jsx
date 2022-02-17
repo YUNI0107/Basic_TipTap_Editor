@@ -1,6 +1,9 @@
 import { useRef } from 'react'
+import useGetHtml from '../../../hooks/useGetHtml'
 
 function BottomMenu({ editor }) {
+  if (!editor) return null
+
   const fileInput = useRef(null)
   const imageInput = useRef(null)
 
@@ -26,6 +29,7 @@ function BottomMenu({ editor }) {
   }
 
   const downloadPdf = () => {
+    // code from https://gist.github.com/sam-ngu/ee10b650112f891013271b8d7ca3e6f3
     const newWindow = window.open()
     const html = document.createElement('html')
     const head = document.head.cloneNode(true)
@@ -34,7 +38,6 @@ function BottomMenu({ editor }) {
     const section = document.querySelector('.ProseMirror').cloneNode(true)
 
     body.appendChild(section)
-
     html.appendChild(head)
     html.appendChild(body)
 
@@ -49,7 +52,7 @@ function BottomMenu({ editor }) {
     newWindow.print()
 
     // // close the new window after printing
-    // newWindow.close()
+    newWindow.close()
   }
 
   return (

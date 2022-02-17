@@ -29,19 +29,19 @@ function Editor() {
   // editor
   const editor = useEditor({
     extensions: [
-      StarterKit,
+      StarterKit.configure({
+        headingHeading: {
+          levels: [1, 2, 3],
+        },
+      }),
       TextAlign.configure({
         types: ['heading', 'paragraph'],
       }),
-      Heading.configure({
-        levels: [1, 2, 3],
-      }),
+
       TextStyle,
       FontSize,
       Underline,
-      ListItem,
-      OrderedList,
-      BulletList,
+
       Color,
       Link.configure({
         autolink: false,
