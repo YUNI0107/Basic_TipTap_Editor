@@ -26,7 +26,7 @@ function Editor() {
   const editor = useEditor({
     extensions: [
       StarterKit.configure({
-        headingHeading: {
+        heading: {
           levels: [1, 2, 3],
         },
       }),
