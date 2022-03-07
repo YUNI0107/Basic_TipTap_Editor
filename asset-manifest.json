@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Basic_TipTap_Editor/static/css/main.f2392819.css",
+    "main.js": "/Basic_TipTap_Editor/static/js/main.e07af555.js",
+    "static/js/787.2891fbd3.chunk.js": "/Basic_TipTap_Editor/static/js/787.2891fbd3.chunk.js",
+    "static/media/remixicon.svg?t=1590207869815": "/Basic_TipTap_Editor/static/media/remixicon.9cedd2150922ead84869.svg",
+    "static/media/remixicon.eot?t=1590207869815": "/Basic_TipTap_Editor/static/media/remixicon.5cb99e6cba5a4619063f.eot",
+    "static/media/remixicon.ttf?t=1590207869815": "/Basic_TipTap_Editor/static/media/remixicon.f2616f597cf98f38d234.ttf",
+    "static/media/remixicon.woff?t=1590207869815": "/Basic_TipTap_Editor/static/media/remixicon.8d09fa11700ed63cf96e.woff",
+    "static/media/remixicon.woff2?t=1590207869815": "/Basic_TipTap_Editor/static/media/remixicon.90668f6f9b3c2c18a090.woff2",
+    "index.html": "/Basic_TipTap_Editor/index.html",
+    "main.f2392819.css.map": "/Basic_TipTap_Editor/static/css/main.f2392819.css.map",
+    "main.e07af555.js.map": "/Basic_TipTap_Editor/static/js/main.e07af555.js.map",
+    "787.2891fbd3.chunk.js.map": "/Basic_TipTap_Editor/static/js/787.2891fbd3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f2392819.css",
+    "static/js/main.e07af555.js"
+  ]
+}
