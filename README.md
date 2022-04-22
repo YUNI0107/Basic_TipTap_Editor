@@ -6,7 +6,7 @@ There are two parts of this project. In first part in the practice folder is the
 
 ## Javascript Tiptap Editor By Javascript
 
-This is a project use [Tiptap Editor](https://tiptap.dev/) to create a text editor with some of feature applied by Tiptap and some custom component. After create your article, you can download the PDF.
+This is a project use [Tiptap Editor](https://tiptap.dev/) to create a text editor with some of feature provided by Tiptap and some custom component. After create your article, you can download the PDF.
 
 ### Feature 🍊
 
