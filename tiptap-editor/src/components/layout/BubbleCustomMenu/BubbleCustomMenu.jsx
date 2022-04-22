@@ -32,7 +32,7 @@ function BubbleCustomMenu({ editor, isFirstLinking, setIsFirstLinking }) {
       x:
         selectionLeft + toolbarWidth < editorLeft + editorWidth
           ? selectionLeft - editorLeft + 25
-          : editorLeft + editorWidth - toolbarWidth - 50,
+          : editorWidth - toolbarWidth + 20,
       y: selectionTop - editorTop + selectionHeight + 10,
     }
   }, [editor.state.selection])

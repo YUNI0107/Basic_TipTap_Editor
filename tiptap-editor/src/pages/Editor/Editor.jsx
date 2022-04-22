@@ -2,12 +2,8 @@ import { useState } from 'react'
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import TextAlign from '@tiptap/extension-text-align'
-import Heading from '@tiptap/extension-heading'
 import TextStyle from '@tiptap/extension-text-style'
 import Underline from '@tiptap/extension-underline'
-import ListItem from '@tiptap/extension-list-item'
-import OrderedList from '@tiptap/extension-ordered-list'
-import BulletList from '@tiptap/extension-bullet-list'
 import Color from '@tiptap/extension-color'
 import Link from '@tiptap/extension-link'
 import Image from '@tiptap/extension-image'
@@ -29,19 +25,19 @@ function Editor() {
   // editor
   const editor = useEditor({
     extensions: [
-      StarterKit,
+      StarterKit.configure({
+        heading: {
+          levels: [1, 2, 3],
+        },
+      }),
       TextAlign.configure({
         types: ['heading', 'paragraph'],
       }),
-      Heading.configure({
-        levels: [1, 2, 3],
-      }),
+
       TextStyle,
       FontSize,
       Underline,
-      ListItem,
-      OrderedList,
-      BulletList,
+
       Color,
       Link.configure({
         autolink: false,

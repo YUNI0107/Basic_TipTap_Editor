@@ -1,6 +1,9 @@
 import { useRef } from 'react'
+import useGetHtml from '../../../hooks/useGetHtml'
 
 function BottomMenu({ editor }) {
+  if (!editor) return null
+
   const fileInput = useRef(null)
   const imageInput = useRef(null)
 
@@ -23,6 +26,33 @@ function BottomMenu({ editor }) {
       const url = window.URL.createObjectURL(e.target.files[0])
       editor.chain().focus().setImage({ src: url }).run()
     }
+  }
+
+  const downloadPdf = () => {
+    // code from https://gist.github.com/sam-ngu/ee10b650112f891013271b8d7ca3e6f3
+    const newWindow = window.open()
+    const html = document.createElement('html')
+    const head = document.head.cloneNode(true)
+    const body = document.createElement('body')
+
+    const section = document.querySelector('.ProseMirror').cloneNode(true)
+
+    body.appendChild(section)
+    html.appendChild(head)
+    html.appendChild(body)
+
+    // write content to the new window's document.
+    newWindow.document.write(html.innerHTML)
+
+    // close document to stop writing
+    // otherwise new window may hang
+    newWindow.document.close()
+
+    // print content in new window as PDF
+    newWindow.print()
+
+    // // close the new window after printing
+    newWindow.close()
   }
 
   return (
@@ -56,7 +86,9 @@ function BottomMenu({ editor }) {
       {/* right */}
       <div className="flex items-baseline">
         <p className="mr-3">Download the PDF </p>
-        <h2 className="text-2xl font-semibold underline cursor-pointer">DONE</h2>
+        <h2 className="text-2xl font-semibold underline cursor-pointer" onClick={downloadPdf}>
+          DONE
+        </h2>
       </div>
     </div>
   )
